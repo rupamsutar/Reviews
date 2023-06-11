@@ -31,7 +31,17 @@ const App = () => {
     })
   };
 
-  return(
+  const randomPerson = () => {
+    let randomNum = Math.floor(Math.random() * people.length) ;
+
+    if (randomNum === index) {
+      randomNum = randomNum + 1;
+    }
+
+    return setIndex(checkNumber(randomNum));
+  }
+
+  return (
     <main>
       <article className="review">
         <div className="img-container">
@@ -51,8 +61,11 @@ const App = () => {
             <FaChevronRight />
           </button>
         </div>
+        <button className="btn btn-hipster" onClick={randomPerson}>
+          Surprise Me
+        </button>
       </article>
     </main>
-  ) 
+  ); 
 };
 export default App;
